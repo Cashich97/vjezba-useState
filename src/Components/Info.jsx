@@ -5,7 +5,6 @@ const Info = () => {
     const [prezime, setPrezime] = useState("");
     const [putnik, setPutnik] = useState(false);
 
-
     function handleImeChange(e) {
         setIme(e.target.value);
     }
@@ -16,28 +15,36 @@ const Info = () => {
         setPutnik(e.target.checked);
     }
 
-   return ( 
-    <div>
+    function showAlert() {
+        if (ime && prezime && putnik) {
+            window.alert(`Bok, ja sam ${ime} ${prezime}, rođen sam 1960 i ${putnik ? "Putnik sam" : "Nisam putnik"}.`);
+        }
+    }
+
+    return ( 
         <div>
-            <label>Ime:</label>
-            <input value={ime} onChange={handleImeChange} />
-        </div>
-        <div>
-            <label>Prezime:</label>
-            <input value={prezime} onChange={handlePrezimeChange} />
-        </div>
-        <div>
-            <label>
-                <input type="checkbox" checked={putnik} onChange={handlePutnikChange} />Putnik sam
-            </label>
-        </div>
+            <div>
+                <label>Ime:</label>
+                <input value={ime} onChange={handleImeChange} />
+            </div>
+            <div>
+                <label>Prezime:</label>
+                <input value={prezime} onChange={handlePrezimeChange} />
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" checked={putnik} onChange={handlePutnikChange} />Putnik sam
+                </label>
+            </div>
 
             <div>
                 <p>Bok, ja sam {ime} {prezime}, rođen sam 1960 i {putnik ? "putnik sam" : "nisam putnik"}.</p>
             </div>
-    </div>       
+            <div>
+                <button onClick={showAlert}>Pozdrav!</button>
+            </div>
+        </div>       
     );
-    
 }
 
-export default Info ;
+export default Info;
