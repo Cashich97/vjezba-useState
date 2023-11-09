@@ -15,7 +15,7 @@ const Info = () => {
         setPutnik(e.target.checked);
     }
 
-    function showAlert() {
+    function banner() {
         if (ime && prezime && putnik) {
             window.alert(`Bok, ja sam ${ime} ${prezime}, rođen sam 1960 i ${putnik ? "Putnik sam" : "Nisam putnik"}.`);
         }
@@ -41,7 +41,7 @@ const Info = () => {
                 <p>Bok, ja sam {ime} {prezime}, rođen sam 1960 i {putnik ? "putnik sam" : "nisam putnik"}.</p>
             </div>
             <div>
-                <button onClick={showAlert}>Pozdrav!</button>
+                <button onClick={banner}>Pozdrav!</button>
             </div>
         </div>       
     );
