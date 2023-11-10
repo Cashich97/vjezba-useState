@@ -15,17 +15,19 @@ const Info = () => {
         setPutnik(e.target.checked);
     }
 
+    // Komentar: Provjera za ispis alerta kad su ispunjeni određeni uvjeti
     function banner() {
-        if (ime && prezime && putnik) {
+        if (ime && putnik) {  // Komentar: Provjerava se i "ime" i "putnik" vrijednosti
             window.alert(`Bok, ja sam ${ime} ${prezime}, rođen sam 1960 i ${putnik ? "Putnik sam" : "Nisam putnik"}.`);
         }
     }
 
     useEffect(() => {
-        if (ime && setPutnik) {    //tek kada se unesu ime i putnik može se alert uzet u obzir
-        alert(ime + ", dogodila se promjena u stanju putnika!");
+        // Komentar: Provjera za ispis alerta kad su ispunjeni određeni uvjeti
+        if (ime && putnik) {
+            alert(ime + ", dogodila se promjena u stanju putnika!");
         }
-    }, [putnik]);  //na promjenu putnika iskače alert
+    }, [putnik]); // Komentar: Na promjenu "putnik" se prikazuje alert
 
     return ( 
         <div>
@@ -47,6 +49,7 @@ const Info = () => {
                 <p>Bok, ja sam {ime} {prezime}, rođen sam 1960 i {putnik ? "putnik sam" : "nisam putnik"}.</p>
             </div>
             <div>
+                {/* Komentar: Dodan je "banner" gumb */}
                 <button onClick={banner}>Pozdrav!</button>
             </div>
         </div>       
