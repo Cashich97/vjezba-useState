@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Info = () => {
     const [ime, setIme] = useState("");
@@ -20,6 +20,12 @@ const Info = () => {
             window.alert(`Bok, ja sam ${ime} ${prezime}, rođen sam 1960 i ${putnik ? "Putnik sam" : "Nisam putnik"}.`);
         }
     }
+
+    useEffect(() => {
+        if(ime && setPutnik) {
+        alert(ime + ", dogodila se promjena u stanju putnika!");
+        }
+    }, [putnik]);
 
     return ( 
         <div>
