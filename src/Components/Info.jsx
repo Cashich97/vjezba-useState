@@ -22,10 +22,10 @@ const Info = () => {
     }
 
     useEffect(() => {
-        if(ime && setPutnik) {
+        if (ime && setPutnik) {    //tek kada se unesu ime i putnik može se alert uzet u obzir
         alert(ime + ", dogodila se promjena u stanju putnika!");
         }
-    }, [putnik]);
+    }, [putnik]);  //na promjenu putnika iskače alert
 
     return ( 
         <div>
